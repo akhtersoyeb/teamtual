@@ -7,42 +7,44 @@ import Link from "next/link"
 const Sidebar = () => {
 
   return (
-    <div className="bg-slate-100 flex flex-col items-center justify-between h-screen w-fit px-4 py-8">
-      <Image
-        src={'/thirteen.svg'}
-        width={30}
-        height={30}
-        alt={'Logo'}
-        priority
-      />
+    <div className="fixed left-0 top-0 w-20">
+      <div className="bg-slate-100 flex flex-col items-center justify-between h-screen w-fit px-4 py-8">
+        <Image
+          src={'/thirteen.svg'}
+          width={30}
+          height={30}
+          alt={'Logo'}
+          priority
+        />
 
-      <div className="flex flex-col items-center gap-y-10">
-        <MenuButton href={'/'}>
-          <HomeIcon />
-        </MenuButton>
+        <div className="flex flex-col items-center gap-y-10">
+          <MenuButton href={'/'}>
+            <HomeIcon />
+          </MenuButton>
 
-        <MenuButton href={'/my-teams'}>
-          <UsersIcon />
-        </MenuButton>
+          <MenuButton href={'/my-teams'}>
+            <UsersIcon />
+          </MenuButton>
 
-        <MenuButton href={'/notifications'}>
-          <BellAlertIcon />
-        </MenuButton>
+          <MenuButton href={'/notifications'}>
+            <BellAlertIcon />
+          </MenuButton>
 
-        <MenuButton href={'/bookmarks'}>
-          <BookmarkIcon />
-        </MenuButton>
+          <MenuButton href={'/bookmarks'}>
+            <BookmarkIcon />
+          </MenuButton>
+        </div>
+
+
+        <Image
+          src={'/profile-demo.jpg'}
+          className={"w-10 h-10 rounded-full overflow-hidden object-cover hover:cursor-pointer outline outline-2 outline-white hover:outline-slate-700 transition duration-300"}
+          width={32}
+          height={32}
+          alt={'Profile'}
+          priority
+        />
       </div>
-
-
-      <Image
-        src={'/profile-demo.jpg'}
-        className={"w-10 h-10 rounded-full overflow-hidden object-cover hover:cursor-pointer outline outline-2 outline-white hover:outline-slate-700 transition duration-300"}
-        width={32}
-        height={32}
-        alt={'Profile'}
-        priority
-      />
     </div>
   )
 }
