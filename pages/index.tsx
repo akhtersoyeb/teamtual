@@ -8,6 +8,10 @@ export default function Home() {
   const session = useSession()
   const supabase = useSupabaseClient()
 
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut()
+  }
+
 
   return (
     <>
@@ -21,9 +25,20 @@ export default function Home() {
       <Layout>
         <div>
           {!session ? (
-            <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" />
+            <div className='flex items-center h-screen'>
+              <div className='w-80 mx-auto'>
+                <Auth
+                  supabaseClient={supabase}
+                  appearance={{ theme: ThemeSupa }}
+                  providers={['github']}
+                />
+              </div>
+            </div>
           ) : (
-            <p>Account page will go here</p>
+            <div>
+              <p>Account page will go here</p>
+              <button onClick={signOut}>Sign Out</button>
+            </div>
           )}
         </div>
       </Layout>
